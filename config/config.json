@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "root",
+      "password": "hk0301234",
+      "database": "APPinfo",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
+  
