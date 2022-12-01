@@ -1,12 +1,8 @@
 const express = require('express');
 const mainPage = express.Router();
-
+const mainPageService = require("../service/mainPageService.js");
 
 //http://localhost:3000/mainPage
-mainPage.use("/",async (req,res,nex)=>{
-
-    //메인 페이지의 정보들을 불러 온다.
-    //mainPage 호출 
-});
+mainPage.use("/",async (req,res,nex)=> mainPageService.init());
 
 module.exports = mainPage;

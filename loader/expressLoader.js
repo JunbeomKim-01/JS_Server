@@ -40,13 +40,13 @@ module.exports = async (expressApp) => {
   expressApp.get("/user",async (req,res,next)=>{})
 
   //http://localhost:3000/login
-  expressApp.post('/login', (req, res, next) => { loginService.localLogin(req,res,next) });
+  expressApp.post('/login', (req, res, next) => loginService.localLogin(req,res,next));
 
   //http://localhost:3000/sigin
-  expressApp.post('/sigup', (req, res, next) => {signupService.signUp()});
+  expressApp.post('/sigup', (req, res, next) => signupService.signUp());
 
   //http://localhost:3000/logout
-  expressApp.get('/logout', (req, res, next) => { logoutService.logout() });
+  expressApp.get('/logout', (req, res, next) => logoutService.logout());
 
   //http://localhost:3000/kakao
   expressApp.use('/kakao', kakaoLoginContorller);

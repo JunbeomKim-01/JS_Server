@@ -1,19 +1,12 @@
 const express = require("express");
 const product = express.Router();
-
+const likeService = require("../service/likeService.js");
+const productDetailService = require('../service/producDetailService.js');
 //http://localhost:3000/product
-product.post("/",async (req,res,next)=>{
-
-});
+product.post("/",async (req,res,next)=> productDetailService.init());
 
 //http://localhost:3000/product/like
 product.route("/like")
-    .get((req,res)=>{
-    //내가 찜한 장소 제공 
-    res.json(req.body.localID);
-    })
-    .post((req,res,next)=>{
-        // body 안에 있는 localID를 찜하기
-        sub();
-    });
+    .get((req,res)=> likeService.getLikeList())
+    .post((req,res,next)=> likeService.like());
 module.exports = product;

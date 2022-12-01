@@ -1,4 +1,3 @@
-
 exports.signUp = function(params) {
     
 }
