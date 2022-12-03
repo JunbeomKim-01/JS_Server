@@ -1,5 +1,4 @@
 const passport = require('passport');
-const kakao = require('./kakaoLogin.js');
 const User = require('../model/user.js');
 const local = require('./localLogin.js');
 
@@ -16,5 +15,4 @@ module.exports = () => {
       .catch(err => done(err));
     });
     local();
-    kakao();
   };

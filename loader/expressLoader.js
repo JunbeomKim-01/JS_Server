@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
-const kakaoLoginContorller = require("../controller/kakaoController.js");
 const mainPageContorller = require("../controller/mainPageController.js");
 const serchPageContorller = require("../controller/serchPageController.js");
 const productPageContorller = require("../controller/productDetailController.js");
@@ -47,9 +46,6 @@ module.exports = async (expressApp) => {
 
   //http://localhost:3000/logout
   expressApp.get('/logout', (req, res, next) => logoutService.logout(req,res));
-
-  //http://localhost:3000/kakao
-  expressApp.use('/kakao', kakaoLoginContorller);
 
   //http://localhost:3000/mainPage
   expressApp.use('/mainPage',mainPageContorller);
