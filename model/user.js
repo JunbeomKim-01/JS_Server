@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 
+
 module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
@@ -31,7 +32,7 @@ module.exports = class User extends Sequelize.Model {
 
     static associate(db) {
         db.User.belongsToMany(db.Location, { 
-            through: 'userLikes',
+            through: "userLikes",
             as:"Locations",
             }
         );

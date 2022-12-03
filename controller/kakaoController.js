@@ -7,7 +7,7 @@ kakaoLogin.get('/', passport.authenticate('kakao'));
 
 //http://localhost:3000/kakao/callback
 kakaoLogin.get('/callback',
-        passport.authenticate('kakao', { failureRedirect: '/' }),
+        passport.authenticate('kakao', { failureRedirect: '/kakao' }),
         (req, res) => res.redirect('/')
   );
 

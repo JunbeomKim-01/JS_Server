@@ -1,26 +1,25 @@
 const Location = require("../model/location.js");
 
 
-exports.addLocation = async function(params) {
-    
-}
-
-exports.findLocation = async function(locationID) {
+exports.findLocation = async function(locationName) {
     const location = Location.findOne({
-        where: {name:locationID}
+        where: {name:locationName},
+        attributes:["code","name","info"]
     });
     if(location)
         return location;
-    return "Not found";
+    return null;
 }
 
 exports.getAllLocation = async function() {
     try{
-        const locations = await Location.findAll({});
+        const locations = await Location.findAll({
+        attributes:["code","name","info"]
+        });
         if(locations){
             return locations;
         }
-        return "Not found";
+        return null;
     }catch{}
 }
 

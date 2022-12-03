@@ -11,7 +11,7 @@ const serchPageContorller = require("../controller/serchPageController.js");
 const productPageContorller = require("../controller/productDetailController.js");
 const loginService = require("../service/loginService.js");
 const logoutService = require("../service/logoutService.js");
-const signupService = require("../service/logoutService.js");
+const signupService = require("../service/signupService");
 dotenv.config();
 module.exports = async (expressApp) => {
   expressApp.set('port', process.env.PORT || 3000);
@@ -42,11 +42,11 @@ module.exports = async (expressApp) => {
   //http://localhost:3000/login
   expressApp.post('/login', (req, res, next) => loginService.localLogin(req,res,next));
 
-  //http://localhost:3000/sigin
-  expressApp.post('/sigup', (req, res, next) => signupService.signUp());
+  //http://localhost:3000/signup
+  expressApp.post('/signup', (req, res, next) => signupService.signUp(req,res));
 
   //http://localhost:3000/logout
-  expressApp.get('/logout', (req, res, next) => logoutService.logout());
+  expressApp.get('/logout', (req, res, next) => logoutService.logout(req,res));
 
   //http://localhost:3000/kakao
   expressApp.use('/kakao', kakaoLoginContorller);

@@ -1,5 +1,4 @@
 const express = require("express");
-const passport = require('passport');
 const lodaer = require("./loader/loader.js");
 const nunjucks = require('nunjucks');
 const path = require('path');

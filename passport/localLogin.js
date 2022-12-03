@@ -14,8 +14,9 @@ module.exports = () => {
       const user = await User.findOne({ where: { id }});
       console.log(user);
       if (user.dataValues) {
-        if (password == user.dataValues.password) 
+        if (password == user.dataValues.password) {
           done(null, user); // 성공 시 user를 념겨 줌
+        }
         else
           done(null, false, { message: '비밀번호가 일치하지 않습니다.' });
       } else

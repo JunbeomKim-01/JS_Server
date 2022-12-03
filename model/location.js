@@ -34,7 +34,7 @@ module.exports = class Location extends Sequelize.Model {
 
     static associate(db) {
         db.Location.belongsToMany(db.User, { 
-            through: 'userLikes',
+            through: "userLikes",
             as:'Users',
         });
     }
