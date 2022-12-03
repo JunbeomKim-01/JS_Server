@@ -5,7 +5,7 @@ exports.like = async function(req,res){
     if(req.user){// 세션이 존재할 떄
         let result = await likeDataLink.doLike(req.user.name,req.body.localName)
         if(result){ // 결과가 존재할 떄
-            jsonUtile.setHeader(401)
+            jsonUtile.setHeader(200)
             jsonUtile.setResult({
                 body:{
                     message:result
@@ -35,7 +35,7 @@ exports.getLikeList = async function(req,res) {
     if(req.user){ // 세션이 존재할 때 
         let result = await likeDataLink.getLikes(req.user.name)
         if(result){ // 결과가 존재할 떄
-            jsonUtile.setHeader(401)
+            jsonUtile.setHeader(200)
             jsonUtile.setResult({
                 body:{
                     Likes:result.Locations
